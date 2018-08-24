@@ -26,7 +26,6 @@ php artisan migrate
 ```
 
 ## Usage
-* How to address
 ```php
 use Stylers\Address\Contracts\Models\Traits\HasAddressesInterface;
 use Stylers\Address\Models\Traits\HasAddresses;
