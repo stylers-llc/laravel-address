@@ -1,0 +1,61 @@
+{
+  "name": "stylers/laravel-address",
+  "description": "Laravel Address Manager",
+  "homepage": "https://github.com/stylers-llc/laravel-address",
+  "keywords": [
+    "stylers",
+    "laravel",
+    "address",
+    "addressable"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "Szilveszter Nagy",
+      "email": "developer@stylersonline.com",
+      "homepage": "http://stylers.hu",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.3",
+    "illuminate/database": "~5",
+    "illuminate/support": "~5"
+  },
+  "require-dev": {
+    "mockery/mockery": "^1.1",
+    "orchestra/testbench": "~3.0|~3.6|~3.7",
+    "phpmd/phpmd": "^2.6",
+    "phpunit/phpunit": "^7.3"
+  },
+  "autoload": {
+    "classmap": [
+      "database"
+    ],
+    "psr-4": {
+      "Stylers\\Address\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Stylers\\Address\\Tests\\": "tests",
+      "Stylers\\Address\\Tests\\Fixtures\\": "tests/fixtures"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Stylers\\Address\\Providers\\AddressServiceProvider"
+      ]
+    }
+  }
+}
