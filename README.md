@@ -64,7 +64,7 @@ $isDeleted = $user->deleteAddress($type); // boolean
 ```
 
 ## Sync Address(es)
-The `syncAddresses()` method delete all addressable address if $`type` is not exists in `$arrayOfAttributes[$type][]`.
+The `syncAddresses()` method delete all addressable address if `$type` is not exists in `$arrayOfAttributes[$type][]`.
 The `syncAddresses()` method create all `$type` of `arrayOfAttributes[$type][]` if type is not exists in `addresses` table.
 ```php
 use Stylers\Address\Enums\AddressTypeEnum;
