@@ -38,6 +38,7 @@ class User extends Authenticatable implements HasAddressesInterface
 ```
 
 ## Update or Create Address
+If the `$type` is exists then will be update with `$attributes`.
 ```php
 use Stylers\Address\Enums\AddressTypeEnum;
 
