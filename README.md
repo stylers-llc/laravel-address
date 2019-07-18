@@ -5,6 +5,7 @@
 [![License](https://poser.pugx.org/stylers/laravel-address/license)](https://packagist.org/packages/stylers/laravel-address) 
 [![Build Status](https://travis-ci.org/stylers-llc/laravel-address.svg?branch=master)](https://travis-ci.org/stylers-llc/laravel-address) 
 [![codecov](https://codecov.io/gh/stylers-llc/laravel-address/branch/master/graph/badge.svg)](https://codecov.io/gh/stylers-llc/laravel-address) 
+[![Maintainability](https://api.codeclimate.com/v1/badges/16913f2a12f13f795cea/maintainability)](https://codeclimate.com/github/stylers-llc/laravel-address/maintainability)
 
 ## Requirements
 - PHP >= 7.1.3
