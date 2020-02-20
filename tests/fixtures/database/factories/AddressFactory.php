@@ -20,10 +20,17 @@ $factory->define(Address::class, function (Faker $faker) {
     return [
         'type' => array_random(AddressTypeEnum::getConstants()),
         'country' => $faker->country,
+        'country_code' => $faker->countryCode,
         'zip_code' => $faker->postcode,
         'city' => $faker->city,
         'name_of_public_place' => $faker->streetName,
         'type_of_public_place' => 'street',
         'number_of_house' => $faker->randomNumber(),
+        'floor' => $faker->randomNumber(),
+        'door' => $faker->randomNumber(),
+        "latitude" => $faker->latitude,
+        "longitude" => $faker->longitude,
+        "parcel_number" => "10086/0/A/3",
+        "description" => $faker->text,
     ];
 });
