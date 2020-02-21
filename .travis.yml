@@ -5,9 +5,10 @@ php:
 
 before_install:
     - travis_retry composer self-update
+    - echo "memory_limit=2G" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 install:
-    - travis_retry composer install --no-interaction --prefer-dist
+    - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer install --no-interaction --prefer-dist
 
 script:
     - vendor/bin/phpunit --verbose --coverage-clover=coverage.xml

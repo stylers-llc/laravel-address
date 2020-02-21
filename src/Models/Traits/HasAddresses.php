@@ -10,50 +10,28 @@ use Illuminate\Support\Collection;
 
 trait HasAddresses
 {
-    /**
-     * @return MorphMany
-     */
     public function addresses(): MorphMany
     {
         return $this->morphMany(app(AddressInterface::class), 'addressable');
     }
 
-    /**
-     * @param string|null $type
-     * @return bool
-     */
     public function hasAddress(string $type = null): bool
     {
         return (bool)$this->addresses()->where('type', $type)->first();
     }
 
-
-    /**
-     * @param array $attributes
-     * @param string|null $type
-     * @return AddressInterface|Model
-     */
     public function updateOrCreateAddress(array $attributes, string $type = null): AddressInterface
     {
         $attributes['type'] = $type;
+
         return $this->addresses()->updateOrCreate(['type' => $type], $attributes);
     }
 
-
-    /**
-     * @param string|null $type
-     * @return bool
-     * @throws \Exception|ModelNotFoundException
-     */
     public function deleteAddress(string $type = null): bool
     {
         return $this->addresses()->where('type', $type)->firstOrFail()->delete();
     }
 
-    /**
-     * @param array $arrayOfAttributes
-     * @return Collection
-     */
     public function syncAddresses(array $arrayOfAttributes): Collection
     {
         $collection = new Collection();

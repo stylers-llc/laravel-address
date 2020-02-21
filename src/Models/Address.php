@@ -6,30 +6,25 @@ use Stylers\Address\Contracts\Models\AddressInterface;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-/**
- * Class Address
- * @package Stylers\Address\Models
- */
 class Address extends Model implements AddressInterface
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'country',
+        'country_code',
         'zip_code',
         'city',
         'name_of_public_place',
         'type_of_public_place',
         'number_of_house',
+        'floor',
+        'door',
+        'latitude',
+        'longitude',
+        'parcel_number',
+        'description',
         'type',
     ];
 
-    /**
-     * @return MorphTo
-     */
     public function addressable(): MorphTo
     {
         return $this->morphTo();
