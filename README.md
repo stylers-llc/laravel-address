@@ -5,6 +5,7 @@
 [![License](https://poser.pugx.org/stylers/laravel-address/license)](https://packagist.org/packages/stylers/laravel-address) 
 [![Build Status](https://travis-ci.org/stylers-llc/laravel-address.svg?branch=master)](https://travis-ci.org/stylers-llc/laravel-address) 
 [![codecov](https://codecov.io/gh/stylers-llc/laravel-address/branch/master/graph/badge.svg)](https://codecov.io/gh/stylers-llc/laravel-address) 
+[![Maintainability](https://api.codeclimate.com/v1/badges/16913f2a12f13f795cea/maintainability)](https://codeclimate.com/github/stylers-llc/laravel-address/maintainability)
 
 ## Requirements
 - PHP >= 7.1.3
@@ -50,6 +51,11 @@ $attributes = [
     "name_of_public_place" => "Kossuth Lajos",
     "type_of_public_place" => "place",
     "number_of_house" => "1-3",
+    "floor" => "42",
+    "door" => "69",
+    "latitude" => "47.5070738",
+    "longitude" => "19.045599",
+    "parcel_number" => "10086/0/A/3",
 ]; // array
 $type = AddressTypeEnum::PRIMARY; // ?string
 $address = $user->updateOrCreateAddress($attributes, $type); // AddressInterface
@@ -73,13 +79,31 @@ use Stylers\Address\Enums\AddressTypeEnum;
 $user = User::first();
 $arrayOfAttributes = [
     AddressTypeEnum::MAILING => [
-       "country" => "Hungary",
-       "zip_code" => "1055",
-       "city" => "Budapest",
-       "name_of_public_place" => "Kossuth Lajos",
-       "type_of_public_place" => "place",
-       "number_of_house" => "1-3",
+        "country" => "Hungary",
+        "zip_code" => "1055",
+        "city" => "Budapest",
+        "name_of_public_place" => "Kossuth Lajos",
+        "type_of_public_place" => "place",
+        "number_of_house" => "1-3",
+        "floor" => "42",
+        "door" => "69",
+        "latitude" => "47.5070738",
+        "longitude" => "19.045599",
+        "parcel_number" => "10086/0/A/3",
     ]
 ];
 $addresses = $user->syncAddresses($arrayOfAttributes); // Collection
+```
+
+## How to Test
+```bash
+$ docker run -it --rm -v $PWD:/app -w /app epcallan/php7-testing-phpunit:7.2-phpunit7 bash
+$ composer install
+$ ./vendor/bin/phpunit
+```
+
+### Troubleshooting
+```bash
+# Fatal error: Allowed memory size of...
+$ COMPOSER_MEMORY_LIMIT=-1 composer install
 ```
