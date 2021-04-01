@@ -2,6 +2,7 @@
 
 namespace Stylers\Address\Enums;
 
+use Illuminate\Support\Arr;
 use Stylers\Address\Contracts\Enums\EnumInterface;
 use \ReflectionClass;
 
@@ -13,6 +14,6 @@ abstract class AbstractEnum implements EnumInterface
         $reflection = new ReflectionClass($class);
         $constants = $reflection->getConstants();
 
-        return array_sort($constants);
+        return Arr::sort($constants);
     }
 }

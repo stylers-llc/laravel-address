@@ -3,6 +3,7 @@
 use Faker\Generator as Faker;
 use Stylers\Address\Models\Address;
 use Stylers\Address\Enums\AddressTypeEnum;
+use Illuminate\Support\Arr;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ use Stylers\Address\Enums\AddressTypeEnum;
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(Address::class, function (Faker $faker) {
     return [
-        'type' => array_random(AddressTypeEnum::getConstants()),
+        'type' => Arr::random(AddressTypeEnum::getConstants()),
         'country' => $faker->country,
         'country_code' => $faker->countryCode,
         'zip_code' => $faker->postcode,
