@@ -2,6 +2,7 @@
 
 namespace Tests\Unit\Models\Traits;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Stylers\Address\Enums\AddressTypeEnum;
 use Stylers\Address\Models\Address;
 use Stylers\Address\Tests\Fixtures\Models\User;
@@ -170,10 +171,10 @@ class HasAddressesTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Illuminate\Database\Eloquent\ModelNotFoundException
      */
     public function it_can_not_delete()
     {
+        $this->expectException(ModelNotFoundException::class);
         $addressable = factory(User::class)->create();
         $attributes = factory(Address::class)->make(['type' => AddressTypeEnum::BILLING])->toArray();
         $addressable->updateOrCreateAddress($attributes, $attributes['type']);

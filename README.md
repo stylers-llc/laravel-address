@@ -7,9 +7,14 @@
 [![codecov](https://codecov.io/gh/stylers-llc/laravel-address/branch/master/graph/badge.svg)](https://codecov.io/gh/stylers-llc/laravel-address) 
 [![Maintainability](https://api.codeclimate.com/v1/badges/16913f2a12f13f795cea/maintainability)](https://codeclimate.com/github/stylers-llc/laravel-address/maintainability)
 
-## Requirements
-- PHP >= 7.1.3
-- Laravel ~5.x
+## Laravel version compatibility
+| Laravel version | Package version |
+|-----------------|-----------------|
+| 5.7             | 1.0             |
+| 5.8             | 1.1             |
+| 6.0             | 1.1             |
+| 7.0             | 2.0             |
+| 8.0             | 3.0             |
 
 ## Installation
 ```bash
