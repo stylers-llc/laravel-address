@@ -15,6 +15,7 @@
 | 6.0             | 1.1             |
 | 7.0             | 2.0             |
 | 8.0             | 3.0             |
+| 9.0             | 4.0             |
 
 ## Installation
 ```bash
@@ -102,7 +103,7 @@ $addresses = $user->syncAddresses($arrayOfAttributes); // Collection
 
 ## How to Test
 ```bash
-$ docker run -it --rm -v $PWD:/app -w /app epcallan/php7-testing-phpunit:7.2-phpunit7 bash
+$ docker run -it --rm -v $PWD:/app -w /app composer bash
 $ composer install
 $ ./vendor/bin/phpunit
 ```
