@@ -10,22 +10,13 @@ use Stylers\Address\Tests\TestCase;
 
 class HasAddressesTest extends TestCase
 {
-    public function dataProvider()
-    {
-        return [
-            [User::class],
-        ];
-    }
-
     /**
      * @test
-     * @dataProvider dataProvider
-     * @param string $class
      */
-    public function get_addresses_relation(string $class)
+    public function get_addresses_relation()
     {
         $address = factory(Address::class)->make();
-        $addressable = factory($class)->create();
+        $addressable = factory(User::class)->create();
         $addressable->addresses()->save($address);
         $addressable->refresh();
         $attachedAddress = $addressable->addresses()->first();
