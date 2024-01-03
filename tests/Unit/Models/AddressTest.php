@@ -8,26 +8,17 @@ use Stylers\Address\Tests\TestCase;
 
 class AddressTest extends TestCase
 {
-    public function dataProvider()
-    {
-        return [
-            [User::class],
-        ];
-    }
-
     /**
-     * @dataProvider dataProvider
      * @test
-     * @param string $class
      */
-    public function get_addressable_relation(string $class)
+    public function get_addressable_relation()
     {
-        $addressable = factory($class)->create();
+        $addressable = factory(User::class)->create();
         $address = factory(Address::class)->make();
         $address->addressable()->associate($addressable);
         $address->save();
         $address->refresh();
 
-        $this->assertEquals($class, get_class($address->addressable));
+        $this->assertEquals(User::class, get_class($address->addressable));
     }
 }
